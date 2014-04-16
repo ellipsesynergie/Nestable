@@ -145,9 +145,7 @@ p { line-height: 1.5em; }
 
     <p>Drag &amp; drop hierarchical list with mouse and touch compatibility (jQuery plugin)</p>
 
-    <p><strong><a href="https://github.com/dbushell/Nestable">Code on GitHub</a></strong></p>
-
-<p><strong>PLEASE NOTE: I cannot provide any support or guidance beyond this README. If this code helps you that's great but I have no plans to develop Nestable beyond this demo (it's not a final product and has limited functionality). I cannot reply to any requests for help.</strong></p>
+    <p><strong><a href="https://github.com/ellipsesynergie/Nestable">Code on GitHub</a></strong></p>
 
     <menu id="nestable-menu">
         <button type="button" data-action="expand-all">Expand All</button>
@@ -213,13 +211,11 @@ p { line-height: 1.5em; }
     <textarea id="nestable-output"></textarea>
     <textarea id="nestable2-output"></textarea>
 
-    <p>&nbsp;</p>
-
     <div class="cf nestable-lists">
 
-    <p><strong>Draggable Handles</strong></p>
+        <h2>Draggable Handles</h2>
 
-    <p>If you're clever with your CSS and markup this can be achieved without any JavaScript changes.</p>
+        <p>If you're clever with your CSS and markup this can be achieved without any JavaScript changes.</p>
 
         <div class="dd" id="nestable3">
             <ol class="dd-list">
@@ -242,6 +238,43 @@ p { line-height: 1.5em; }
                             <div class="dd-handle dd3-handle">Drag</div><div class="dd3-content">Item 18</div>
                         </li>
                     </ol>
+                </li>
+            </ol>
+        </div>
+
+    </div>
+
+    <div class="cf nestable-lists">
+
+        <h2>With parentable and non parentable elements</h2>
+
+        <div class="dd" id="nestable4">
+            <ol class="dd-list">
+                <li class="dd-item" data-id="1" data-parentable="false">
+                    <div class="dd-handle">Item 1 (not parentable)</div>
+                </li>
+                <li class="dd-item" data-id="2" data-parentable="true">
+                    <div class="dd-handle">Item 2 (parentable)</div>
+                    <ol class="dd-list">
+                        <li class="dd-item" data-id="3" data-parentable="true"><div class="dd-handle">Item 3 (parentable)</div></li>
+                        <li class="dd-item" data-id="4" data-parentable="true"><div class="dd-handle">Item 4 (parentable)</div></li>
+                        <li class="dd-item" data-id="5" data-parentable="true">
+                            <div class="dd-handle">Item 5 (parentable)</div>
+                            <ol class="dd-list">
+                                <li class="dd-item" data-id="6" data-parentable="true"><div class="dd-handle">Item 6 (parentable)</div></li>
+                                <li class="dd-item" data-id="7" data-parentable="true"><div class="dd-handle">Item 7 (parentable)</div></li>
+                                <li class="dd-item" data-id="8" data-parentable="true"><div class="dd-handle">Item 8 (parentable)</div></li>
+                            </ol>
+                        </li>
+                        <li class="dd-item" data-id="9" data-parentable="true"><div class="dd-handle">Item 9 (parentable)</div></li>
+                        <li class="dd-item" data-id="10" data-parentable="true"><div class="dd-handle">Item 10 (parentable)</div></li>
+                    </ol>
+                </li>
+                <li class="dd-item" data-id="11" data-parentable="false">
+                    <div class="dd-handle">Item 11 (not parentable)</div>
+                </li>
+                <li class="dd-item" data-id="12" data-parentable="true">
+                    <div class="dd-handle">Item 12 (parentable)</div>
                 </li>
             </ol>
         </div>
@@ -297,6 +330,8 @@ $(document).ready(function()
     });
 
     $('#nestable3').nestable();
+
+    $('#nestable4').nestable();
 
 });
 </script>

@@ -1,31 +1,24 @@
 Nestable
 ========
 
-## PLEASE NOTE
+Drag & drop hierarchical list with mouse and touch compatibility (jQuery / Zepto plugin). This is a fork of [Nestable](https://github.com/dbushell/Nestable) from [dbushell](https://github.com/dbushell/Nestable).
 
-**I cannot provide any support or guidance beyond this README. If this code helps you that's great but I have no plans to develop Nestable beyond this demo (it's not a final product and has limited functionality). I cannot reply to any requests for help.**
-
-* * *
-
-### Drag & drop hierarchical list with mouse and touch compatibility (jQuery / Zepto plugin)
-
-[**Try Nestable Demo**](http://dbushell.github.com/Nestable/)
-
-Nestable is an experimental example and not under active development. If it suits your requirements feel free to expand upon it!
+[Try Nestable Demo](http://ellipsesynergie.github.com/Nestable/)
 
 ## Usage
 
 Write your nested HTML lists like so:
 
+```html
     <div class="dd">
         <ol class="dd-list">
-            <li class="dd-item" data-id="1">
+            <li class="dd-item" data-id="1" data-parentable="true">
                 <div class="dd-handle">Item 1</div>
             </li>
-            <li class="dd-item" data-id="2">
+            <li class="dd-item" data-id="2" data-parentable="false">
                 <div class="dd-handle">Item 2</div>
             </li>
-            <li class="dd-item" data-id="3">
+            <li class="dd-item" data-id="3" data-parentable="true">
                 <div class="dd-handle">Item 3</div>
                 <ol class="dd-list">
                     <li class="dd-item" data-id="4">
@@ -38,28 +31,42 @@ Write your nested HTML lists like so:
             </li>
         </ol>
     </div>
+```
 
 Then activate with jQuery like so:
 
+```Javascript
     $('.dd').nestable({ /* config options */ });
+```
 
 ### Events
 
 The `change` event is fired when items are reordered.
 
+```Javascript
     $('.dd').on('change', function() {
         /* on change event */
     });
+```
 
 ### Methods
 
 You can get a serialised object with all `data-*` attributes for each item.
 
+```Javascript
     $('.dd').nestable('serialize');
+```
 
 The serialised JSON for the example above would be:
 
+```Javascript
     [{"id":1},{"id":2},{"id":3,"children":[{"id":4},{"id":5}]}]
+```
+
+### Attributes
+
+* `data-id` The element's id
+* `data-parentable` Indicate if element can has children (`true`) or not (`false`) (optional)
 
 ### Configuration
 
@@ -83,9 +90,13 @@ These advanced config options are also available:
 * `expandBtnHTML` The HTML text used to generate a list item expand button (default `'<button data-action="expand">Expand></button>'`)
 * `collapseBtnHTML` The HTML text used to generate a list item collapse button (default `'<button data-action="collapse">Collapse</button>'`)
 
-**Inspect the [Nestable Demo](http://dbushell.github.com/Nestable/) for guidance.**
+**Inspect the [Nestable Demo](http://ellipsesynergie.github.com/Nestable/) for guidance.**
 
 ## Change Log
+
+### 16th April 2014
+
+* Added `data-parentable` attribute
 
 ### 15th October 2012
 
