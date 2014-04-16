@@ -363,6 +363,10 @@
                 if (mouse.distX > 0 && prev.length && !prev.hasClass(opt.collapsedClass)) {
                     // cannot increase level when item above is collapsed
                     list = prev.find(opt.listNodeName).last();
+                    // check if parent list can has children
+                    if (prev.data('parentable') !== undefined && !prev.data('parentable')) {
+                        return;
+                    }
                     // check if depth limit has reached
                     depth = this.placeEl.parents(opt.listNodeName).length;
                     if (depth + this.dragDepth <= opt.maxDepth) {
